@@ -1,3 +1,5 @@
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.stream.Collectors;
 /**
  * Created by zipon on 2017/9/27.
  */
+@Listeners({NewReport.class})
 public class MapTest {
 
     @Test
@@ -23,6 +26,7 @@ public class MapTest {
             System.out.println(entry);
             System.out.println(entry.getKey()+"_________"+entry.getValue());
         }
+        Assert.assertEquals(1,2);
     }
     @Test
     public void listStreamTest(){
@@ -35,11 +39,7 @@ public class MapTest {
 
         System.out.println(list);
 
-        List list1=list.stream().map(n->n+"adc").collect(Collectors.toList());
-        List list2=list.stream().map(String::valueOf).collect(Collectors.toList());
-        System.out.println(list1);
-        list2.stream().collect(Collectors.toList());
-        System.out.println("list2==="+list2);
+
     }
 
 }
